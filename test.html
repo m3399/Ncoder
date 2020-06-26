@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/main.css" type="text/css" />
     <script type="text/javascript" src="assets/js/Winwheel.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script type="text/javascript" src="assets/js/CommonFunctions.js"></script>
 </head>
 
 <body>
@@ -73,17 +74,23 @@
         // Vars used by the code in this page to do power controls.
         var wheelPower = 0;
         var wheelSpinning = false;
-        var count = 0;
+        // var count = 0;
         // ------------------------------------------------------
         // Function to calculate prize 
         //-----------------------------------------------------
-        var ranNO = Math.floor(Math.random() * 50);
+        // var ranNO = getResult();
+        // console.log('Outside Op = ' + ranNO);
+        var win = false;
         var stopAt;
         var segmentNO;
 
         function calculatePrize() {
-            if (ranNO == '1') {
-                stopAt = (91 + Math.floor(Math.random() * 43));
+            var ranNO = getResult();
+            console.log('inside Op = ' + ranNO);
+            if (ranNO == 1) {
+                segmentNO = '1';
+                stopAt = theWheel.getRandomForSegment(segmentNO);
+                win = true;
             } else if (2 <= ranNO && ranNO <= 8) {
                 segmentNO = '2';
                 stopAt = theWheel.getRandomForSegment(segmentNO);
@@ -155,7 +162,12 @@
         // -------------------------------------------------------
         function alertPrize(indicatedSegment) {
             // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
-            alert("You have won " + indicatedSegment.text);
+            // alert("You have won " + indicatedSegment.text);
+            if (win) {
+                console.log('win ' + win);
+            } else {
+                console.log('Lose ' + win);
+            }
             resetWheel();
         }
     </script>
