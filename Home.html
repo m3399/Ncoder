@@ -5,30 +5,57 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/home.css">
-
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+        /* Clearfix (clear floats) */
+        
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        .img {
+            background-color: grey;
+            width: 500px;
+            border: 5px solid black;
+            padding: 50px;
+            margin: 20px;
+        }
+        
+        .boxed {
+            border: 1px solid green;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="navbar">
-        <img src="assets/imgs/logo.png" alt=" help here put the image " width="150" height="150" ; style="float: left;">
-
-        <h1 style="float: left; color:#ffcc99; font-style: Comic Sans MS">
-
-
+        <img src="assets/imgs/logo.png" width="155" height="155" style="float: left;">
+        <h1 style="float: left; color:#ffcc99;  font-style: Comic Sans MS">
             CT CABZ </h1>
-
-        <a href="aboutus.html"><img src="assets/imgs/us.png" width="40" height="60">Abt US</a>
-
-
-        <a href="login.html"><img src="assets/imgs/log.png" width="40" height="50">Login</a>
-        <a href="registration.html"><img src="assets/imgs/reg.png" width="40" height="60">Register</a>
-        <a href="Home.html"><img src="assets/imgs/house.png" width="40" height="50">Home</a>
-
-
+        <!---<a href="aboutus.html"><img src="css/us.png" width="40" height="60">Abt US</a>--->
+        <!--<a href="login.html"><img src="css/log.png" width="40" height="50">Login</a>-->
+        <!--<a href="registration.html"><img src="css/reg.png" width="40" height="60">Register</a>-->
+        <!--<a href="Home.html"><img src="css/house.png" width="40" height="50">Home</a>-->
+        <h4 style="float: right; 
+        color:#ffcc99; 
+        margin-top: 10px;
+        margin-right: 10px;
+        padding: 0; 
+        font-style: Comic Sans MS;">
+            Social Media links<br><br>For Booking Contact <br> +91-XXXXX_XXXXX</h4>
 
     </div>
-
 
 
 
@@ -38,7 +65,59 @@
 
 
     <div style="text-align:center">
-        <h2> Welcome to Goa !</h2>
+
+        <!-- img src="assets/imgs/home.jpg" width="1920 pixels" height="1080 pixels"-->
+    </div>
+    </div>
+
+
+
+
+
+
+    <div style="text-align:center;">
+        <h1 class="xlarge-font"><b> WELCOME TO GOA !</b></h1>
+    </div>
+    <h3>
+        <div style="text-align:center;"><b>A polychromatic blend of Indian an Portugese cultures , sweetned with sun ,sea,sand,seafood suegad and spirituality</b> </div>
+        <div style="text-align:center;"><b>Goa is India's pocket-sized paradise .</b></div>
+        <div style="text-align:center;"><b>With our amazing fleet of cars and assured services , it is time you drive along with succor and overlook the daily qualms of the world.</b></div>
+        <div style="text-align:center;"><b>From Stunning Hatchbacks and Sedans to top SUVs and MUVs, whatever you choice ,</b></div>
+        <div style="text-align:center;"><b>please choose from the following category</b> </div>
+    </h3>
+
+    <div class="column-66">
+
+        <h2 class="large-font"><b>1.Wheels that require couple and a balance ! </b></h2>
+        <div class="row">
+
+            <div class="column"><img src="assets/imgs/Honda-Activa-PNG-Image-Background.png" height="700" width="500"></div>
+            <div class="column"><img src="assets/imgs/purepng.com-yamaha-fzsmotorcyclemotorbikebikevehiclebmwyamaha-981525168770yxyvc.png" height="700" width="500"></div>
+            <div class="column"><img src="assets/imgs/PNGPIX-COM-Royal-Enfield-Bullet-500-Motorcycle-Bike-PNG-Image-500x471.png" height="700" width="500"></div>
+
+        </div>
+        <h2 class="large-font "><b>2.When the sun is hot & people are four ! </b></h2>
+        <div class="row">
+            <div class="column"><img src="assets/imgs/Hyundai-Xcent-Silver-Color-Front-View.png" height="700" width="500"></div>
+            <div class="column"> <img src="assets/imgs/Swift-Car-PNG-Image-715x715.png" height="700" width="500"></div>
+            <div class="column"> <img src="assets/imgs/Bạt-phủ-xe-oto-HYUNDAI-i10-giá-rẻ.png" height="700" width="500"></div>
+        </div>
+
+        <h2 class="large-font "><b>3.Goa is good with a group FRIENDS ! </b></h2>
+        <div class="row">
+            <div class="column"><img src="assets/imgs/mahindra-XUV500-1280x720.png" height="700" width="500"></div>
+            <div class="column"><img src="assets/imgs/all-new-innova-png-3.png" height="700" width="500"></div>
+            <div class="column"><img src="assets/imgs/fortuner-gxl-automatic-melville-toyota-2.png" height="700" width="500"></div>
+        </div>
+
+
+
+        <h2 class="large-font "><b>4. Little attention is nice and cars can do that for you ! </b></h2>
+        <div class="row">
+            <div class="column"> <img src="assets/imgs/2017-BMW-5-Series-Compare.png" height="700" width="500"></div>
+            <div class="column"><img src="assets/imgs/purepng.com-audi-q3-caraudicars-961524670883v6rkg.png" height="700" width="500"></div>
+            <div class="column"><img src="assets/imgs/2017-GLS-450-Black.png" height="700" width="500"></div>
+        </div>
     </div>
 
 
@@ -48,29 +127,28 @@
 
 
 
-
-    <div class="container1">
-        <div class="row">
-            <div class="column-66">
-                <h1 class="xlarge-font"><b> Cool and Wonderful!  </b></h1>
-                <h1 class="large-font" style="color: #003300;"><b> Already User then Lets Go! </b></h1>
-                <p><span style="font-size:36px"> Check Today's Updates Now! You Favourite CAR is Up! </p>
-
-
-      <button  class="button" style="vertical-align:middle" onclick="window.location='login.html'"><span>Lets Go </span></button>
-
-
-
-
+    <!--  <div>
+        <div class="row ">
+            <div class="column-66 ">
+                <h1 class="xlarge-font "><b> WELCOME TO GOA !</b></h1>
+                <div style="text-align:center; ">
+                    <h4 class="large-font "><b> A polychromatic blend of Indian and Portuguese cultures, sweetened with sun, sea, sand, seafood, susegad and spirituality, Goa is India's pocket-sized paradise.
+                    </b></h4>
+                </div>
+                <div style="text-align:center; ">
+                    <h3class="large-font " style="color: #003300; "><b> CHECK OUT THE CARS YOU WANT TO RIDE ON !! </b></h3>
+                </div>
+                <p><span style="font-size:36px "> CHECK TODAY'S UPDATES NOW! YOUR FAVOURITE CAR IS UP !! </p>
 
 
+                         <button  class="button " style="vertical-align:middle " onclick="window.location='car.html' "><span>Lets Go </span></button>
 
             </div>
-            <div class="column-33">
-                <img src="css/logo.png" width="700" height="1000">
+             <div class="column-33 ">
+                <img src="css/logo.png " width="900 " height="700 ">
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 
@@ -83,24 +161,34 @@
 
 
     <!-- Clarity Section -->
-    <div class="container" style="background-color:#f1f1f1">
-        <div class="row">
-            <div class="column-33">
-                <img src="css/wick.jpg" width="335" height="471">
+    <div class="container" style="background-color:#f1f1f1 ">
+        <div class="row ">
+            <div class="column-33 ">
+
+                <!-- <img src="css/ " width="335 " height="471 "> -->
             </div>
             <div class="column-66">
-                <h1 class="xlarge-font"><b> Register</b></h1>
-                <h1 class="large-font" style="color:red;"><b>New? We Welcome You!</b></h1>
-                <p><span style="font-size:24px"> </span> We Are Glad You are Here!lets play the spin wheel !!! login to get started and get prizes ! This is a quick Service
-                    <img src="css/Spinning-wheel-715x715.png" alt="help here put the image ">
-                    <p> Thankyou!!
-                        <p>
 
-                        </p>
+                <h1 class="xlarge-font "><b> Register</b></h1>
+                <h1 class="large-font " style="color:red; "><b>New? We Welcome You!</b></h1>
+                <p><span style="font-size:24px "> </span> We Are Glad You are Here!lets play the spin wheel !!! login to get started and get prizes ! This is a quick Service</p>
+
+                <div class="row">
+                    <div class="column"><img src="assets/imgs/Spinning-wheel-715x715.png " height="200 " width="200 "></div>
+                    <div class="column"><img src="assets/imgs/Spinning-wheel-715x715.png " height="200 " width="200 "></div>
+                </div>
+                <div class="row">
+                    <div class="column"><img src="assets/imgs/Spinning-wheel-715x715.png " height="200 " width="200 "></div>
+                    <div class="column"><img src="assets/imgs/Spinning-wheel-715x715.png " height="200 " width="200 "></div>
+                </div>
+                <p> Thankyou!!
+                    <p>
 
 
 
-                        <button class="button2" style="vertical-align:middle" onclick="window.location='registration.html'"><span>Register </span></button>
+
+
+                        <button class="button2 " style="vertical-align:middle " onclick="window.location='registration.html' "><span>Register </span></button>
 
 
             </div>
@@ -108,7 +196,7 @@
     </div>
 
     <!-- The App Section -->
-    <div class="footer">
+    <div class="footer ">
 
 
 

@@ -1,0 +1,184 @@
+<html>
+
+<head>
+    <title>HTML5 Canvas Winning Wheel</title>
+    <link rel="stylesheet" href="css/wheel.css" type="text/css" />
+    <script type="text/javascript" src="assets/js/Winwheel.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script type="text/javascript" src="assets/js/CommonFunctions.js"></script>
+</head>
+
+<body>
+    <div align="center">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td>
+
+                    <button id="spin_button" onClick="startSpin();"><img id="spin_button_image" src="assets/wheel/spin_off.png" alt="Spin"/></button>
+                    <br>
+                    <!--button id="resetwheel" onclick="resetWheel()">Reset</button>
+                    -->
+
+                </td>
+                <td width="438" height="582" class="the_wheel" align="center" valign="center">
+                    <canvas id="canvas" width="434" height="434">
+                           
+                        </canvas>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        //var btn = document.getElementById('resetwheel');
+        // btn.disabled = false;
+
+        var theWheel = new Winwheel({ // Create new wheel object specifying the parameters at creation time.
+            'numSegments': 8, // Specify number of segments.
+            'outerRadius': 212, // Set outer radius so wheel fits inside the background.
+            'textFontSize': 28, // Set font size as desired.
+            'segments': // Define segments including colour and text.
+                [{
+                'fillStyle': '#eae56f',
+                'text': 'Lucky SUV'
+            }, {
+                'fillStyle': '#89f26e',
+                'text': 'Try Again'
+            }, {
+                'fillStyle': '#7de6ef',
+                'text': '\t\t\t One more \nSpin'
+            }, {
+                'fillStyle': '#e7706f',
+                'text': 'Try Again'
+            }, {
+                'fillStyle': '#eae56f',
+                'text': '\t\t\t One more \nSpin'
+            }, {
+                'fillStyle': '#89f26e',
+                'text': 'Try Again'
+            }, {
+                'fillStyle': '#7de6ef',
+                'text': 'Try Again'
+            }, {
+                'fillStyle': '#e7706f',
+                'text': 'Try Again'
+            }],
+            'animation': // Specify the animation to use.
+            {
+                'type': 'spinToStop',
+                'duration': 5, // Duration in seconds.
+                'spins': 8, // Number of complete spins.
+                'callbackFinished': alertPrize
+            }
+        });
+
+        // Vars used by the code in this page to do power controls.
+        var wheelPower = 0;
+        var wheelSpinning = false;
+        // var count = 0;
+        // ------------------------------------------------------
+        // Function to calculate prize 
+        //-----------------------------------------------------
+        // var ranNO = getResult();
+        // console.log('Outside Op = ' + ranNO);
+        var win = false;
+        var stopAt;
+        var segmentNO;
+
+        function calculatePrize() {
+            var ranNO = getResult(200);
+            console.log('inside Op = ' + ranNO);
+            if (ranNO == 1) {
+                segmentNO = '1';
+                stopAt = theWheel.getRandomForSegment(segmentNO);
+                win = true;
+            } else if (2 <= ranNO && ranNO <= 29) {
+                segmentNO = '2';
+                stopAt = theWheel.getRandomForSegment(segmentNO);
+            } else if (30 <= ranNO && ranNO <= 57) {
+                segmentNO = '3';
+                stopAt = theWheel.getRandomForSegment(segmentNO);
+            } else if (58 <= ranNO && ranNO <= 85) {
+                segmentNO = '4';
+                stopAt = theWheel.getRandomForSegment(segmentNO);
+            } else if (86 <= ranNO && ranNO <= 113) {
+                segmentNO = '5';
+                stopAt = theWheel.getRandomForSegment(segmentNO);
+            } else if (114 <= ranNO && ranNO <= 141) {
+                segmentNO = '6';
+                stopAt = theWheel.getRandomForSegment(segmentNO);
+            } else if (142 <= ranNO && ranNO <= 169) {
+                segmentNO = '7';
+                stopAt = theWheel.getRandomForSegment(segmentNO);
+            } else if (170 <= ranNO && ranNO <= 200) {
+                segmentNO = '8';
+                stopAt = theWheel.getRandomForSegment(segmentNO);
+            }
+            console.log('segment no :' + segmentNO);
+            return stopAt;
+
+        }
+        // -------------------------------------------------------
+        // Click handler for spin button.
+        // -------------------------------------------------------
+        function startSpin() {
+            // Ensure that spinning can't be clicked again while already running.
+            if (wheelSpinning == false) {
+                var stAngle = calculatePrize();
+
+                theWheel.animation.spins = 3;
+
+                // Disable the spin button so can't click again while wheel is spinning.
+                document.getElementById('spin_button_image').src = "assets/wheel/spin_off.png";
+                document.getElementById('spin_button').className = "";
+                theWheel.animation.stopAngle = stAngle;
+                // console.log(stAngle);
+                // Begin the spin animation by calling startAnimation on the wheel object.
+                theWheel.startAnimation();
+
+                // Set to true so that power can't be changed and spin button re-enabled during
+                // the current animation. The user will have to reset before spinning again.
+                wheelSpinning = true;
+                //     btn.disabled = true;
+
+            }
+
+        }
+
+
+        // -------------------------------------------------------
+        // Function for reset button.
+        // -------------------------------------------------------
+        function resetWheel() {
+
+            theWheel.stopAnimation(false); // Stop the animation, false as param so does not call callback function.
+            theWheel.rotationAngle = 0; // Re-set the wheel angle to 0 degrees.
+            theWheel.draw(); // Call draw to render changes to the wheel.
+            wheelSpinning = false; // Reset to false to power buttons and spin can be clicked again.
+        }
+
+        // -------------------------------------------------------
+        // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters
+        // note the indicated segment is passed in as a parmeter as 99% of the time you will want to know this to inform the user of their prize.
+        // -------------------------------------------------------
+        function alertPrize(indicatedSegment) {
+            // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
+            // alert("You have won " + indicatedSegment.text);
+            if (win) {
+                alert("Congratulations !!! YOU WON !!");
+                document.location.href = 'registration.html';
+                console.log('win ' + win);
+            } else {
+                alert("Sorry, Better Luck Next Time");
+                console.log('Lose ' + win);
+                if (segmentNO != '3' || segmentNO != '5') {
+                    document.location.href = 'index.html';
+                } else {
+                    alert('but you have one more chance!');
+                }
+            }
+            resetWheel();
+        }
+    </script>
+</body>
+
+</html>
