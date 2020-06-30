@@ -3,8 +3,8 @@ var count = 0;
 // Creating array of 50 nos to check the uniquity
 var usedRandomNumber = [];
 
-function uniqueRandom() {
-    var RanNo = Math.floor(Math.random() * 50);
+function uniqueRandom(m) {
+    var RanNo = Math.floor(Math.random() * m);
 
     var v = usedRandomNumber.includes(RanNo);
     //console.log(v);
@@ -25,9 +25,9 @@ function uniqueRandom() {
 
 }
 
-function getResult() {
-    if (count < 50) {
-        op = uniqueRandom();
+function getResult(n) {
+    if (count < n) {
+        op = uniqueRandom(n);
         count++;
         return op;
     } else {
@@ -38,7 +38,7 @@ function getResult() {
 }
 
 function test() {
-    for (let index = 0; index < 50; index++) {
+    for (let index = 0; index < n; index++) {
         myFuns();
 
     }
